@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+  <div class="head">
+    <div class="change-value">
+      <input type="radio" name="mod" value="a" checked onClick="setMode('a')"> Mode A<br>
+      <input type="radio" name="mod" value="b" onClick="setMode('b')"> Mode B<br>
+    </div>
+    <div class="winner-box hidden">
+      <p class="status">You lose</p>
+      <button class="btn-restart" id="restart">Restart</button>
+    </div>
+  </div>
+  <div class="container">
+    <canvas width="400" height="400" id="snake"></canvas>
+  </div>
+  
+
+  <script src="scripts.js"></script>
+</body>
+</html>
