@@ -1,5 +1,4 @@
 function renderCaro(n, squares, winnerSquares = []){
-  console.log("renderCaro")
   const caro = document.querySelector(".caro");
   let html = "";
   let isWin;
@@ -26,4 +25,10 @@ function showWinner(symbol){
   const winnerBox = document.querySelector('.winner-box');
   winnerBox.classList.remove("hidden");
   document.querySelector(".winner").innerHTML = symbol;
+}
+
+function showRestart(){
+  const winnerBox = document.querySelector('.winner-box');
+  winnerBox.classList.remove("hidden");
+  document.querySelector(".winner").innerHTML = "Null";
 }

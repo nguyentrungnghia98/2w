@@ -2,6 +2,7 @@ var n = 3;
 var m = 3;
 var squares = Array(n).fill(0).map(() => Array(n).fill(0));
 var turn = true; //true => X
+var countSquareChecked = 0;
 var caro = document.querySelector(".caro");
 //inital
 renderCaro(n, squares);
@@ -25,7 +26,6 @@ function checkWinner(row, column, symbol){
       countRow = 0;
     }
     
-
     // check column
     if(squares[i][column] === symbol){
       countColumn++;
@@ -84,15 +84,14 @@ function clickSquare(e){
 
   const square = e.target;
   const {i, j} = square.dataset;
-  
   //if square was checked => ignore
   if(squares[i][j] !== 0) return;
 
+  countSquareChecked++;
   const symbol = turn? 'X':'O';
   squares[i][j] = symbol;
   square.innerText = symbol;
   turn = !turn;
-
   //check winner
   const winnerSquares = checkWinner(i,j,symbol);
   if(winnerSquares){
@@ -102,26 +101,29 @@ function clickSquare(e){
     showWinner(symbol);
   }else{
     document.querySelector('.winner-box').classList.add("hidden");
+    //check end game
+    if(countSquareChecked === n*n)  showRestart();
   }
-  
 }
 
 function onChangeSize(){
-  console.log(this.value)
   if(!isNaN(this.value)) {
     n = Number.parseInt(this.value);
-    squares = Array(n).fill(0).map(() => Array(n).fill(0));
-    renderCaro(n, squares);
+    onRestart();
   }
 }
 function onChangeLength(){
-  console.log(this.value)
-  if(!isNaN(this.value)) m = Number.parseInt(this.value);
+  if(!isNaN(this.value)) {
+    m = Number.parseInt(this.value);
+    onRestart();
+  }
 }
 
 function onRestart(){
   document.querySelector('.winner-box').classList.add("hidden");
   squares = Array(n).fill(0).map(() => Array(n).fill(0));
+  turn = true;
+  countSquareChecked = 0;
   renderCaro(n, squares);
 }
 
