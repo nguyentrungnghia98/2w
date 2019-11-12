@@ -2,30 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Caro</title>
+  <title>Grid</title>
   <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
   <div class="head">
     <div class="change-value">
         <label>n:</label>
-        <input name="size" id="size" value=3 >
+        <input name="row" id="row" value=100000 >
         <label style="margin-left: 12px;">m:</label>
-        <input name="length" id="length" value=3 >
-    </div>
-    <div class="winner-box hidden">
-      <p>Winner:</p>
-      <div class="winner">O</div>
-      <button class="btn-restart" id="restart">Restart</button>
+        <input name="column" id="column" value=10 >
     </div>
   </div>
   <div class="container">
-      <div class="caro">
-        </div>
+      <table class="grid" id="grid">
+
+       </table>
   </div>
   
-
-  <script src="updateUI.js"></script>
   <script src="scripts.js"></script>
 </body>
 </html>
