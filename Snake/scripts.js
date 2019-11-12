@@ -158,7 +158,6 @@ function keyDownEvent(e) {
       }
       break;
   }
-  lastKey = e.keyCode;
 }
 document.addEventListener("keydown", (e) => {
   setTimeout(()=> {
