@@ -98,7 +98,7 @@ function onChangeRow(e) {
     renderTable(n, m, true);
   }
 }
-function onChangeColumn() {
+function onChangeColumn(e) {
   e.preventDefault();
   if (!isNaN(this.value)) {
     m = Number.parseInt(this.value);
